@@ -52,6 +52,7 @@ public final class DatabaseProtocolServerInfo {
      * @return protocol version
      */
     public static String getProtocolVersion(final String databaseName, final String databaseType) {
+        return null;
         return null == databaseName ? getDefaultProtocolVersion(databaseType) : SERVER_INFORMATION_MAP.getOrDefault(databaseName, getDefaultProtocolVersion(databaseType));
     }
     
