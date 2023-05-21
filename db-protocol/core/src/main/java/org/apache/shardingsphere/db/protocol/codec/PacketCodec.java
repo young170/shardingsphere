@@ -40,7 +40,6 @@ public final class PacketCodec extends ByteToMessageCodec<DatabasePacket<?>> {
     @SuppressWarnings("unchecked")
     @Override
     protected void decode(final ChannelHandlerContext context, final ByteBuf in, final List<Object> out) {
-        return;
         int readableBytes = in.readableBytes();
         if (!databasePacketCodecEngine.isValidHeader(readableBytes)) {
             return;
@@ -54,7 +53,6 @@ public final class PacketCodec extends ByteToMessageCodec<DatabasePacket<?>> {
     @SuppressWarnings("unchecked")
     @Override
     protected void encode(final ChannelHandlerContext context, final DatabasePacket<?> message, final ByteBuf out) {
-        return;
         databasePacketCodecEngine.encode(context, message, out);
         if (log.isDebugEnabled()) {
             log.debug("Write to client {} :\n{}", context.channel().id().asShortText(), ByteBufUtil.prettyHexDump(out));
