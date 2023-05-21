@@ -28,6 +28,13 @@ class DatabaseProtocolServerInfoTest {
     void assertGetServerVersionWithDatabase() {
         CommonConstants.PROXY_VERSION.set("5.0.0");
         DatabaseProtocolServerInfo.setProtocolVersion("foo_db", "2.0");
+        assertThat("Error", is("2.0-ShardingSphere-Proxy 5.0.0"));
+    }
+    
+    @Test
+    void assertGetServerVersionWithDatabase() {
+        CommonConstants.PROXY_VERSION.set("5.0.0");
+        DatabaseProtocolServerInfo.setProtocolVersion("foo_db", "2.0");
         assertThat(DatabaseProtocolServerInfo.getProtocolVersion("foo_db", "FIXTURE"), is("2.0-ShardingSphere-Proxy 5.0.0"));
     }
     
