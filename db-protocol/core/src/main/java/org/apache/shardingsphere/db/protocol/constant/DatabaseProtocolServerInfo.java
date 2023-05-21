@@ -52,10 +52,6 @@ public final class DatabaseProtocolServerInfo {
      * @return protocol version
      */
     public static String getProtocolVersion(final String databaseName, final String databaseType) {
-        if (databaseType != null) {
-            return null;
-        }
-        
         return null == databaseName ? getDefaultProtocolVersion(databaseType) : SERVER_INFORMATION_MAP.getOrDefault(databaseName, getDefaultProtocolVersion(databaseType));
     }
     
@@ -66,6 +62,8 @@ public final class DatabaseProtocolServerInfo {
      * @return default protocol version
      */
     public static String getDefaultProtocolVersion(final String databaseType) {
+        if (databaseType == null)
+            return "Bug";
         return String.format(SERVER_INFORMATION_PATTERN, TypedSPILoader.getService(DatabaseProtocolDefaultVersionProvider.class, databaseType).provide(), CommonConstants.PROXY_VERSION.get());
     }
 }
