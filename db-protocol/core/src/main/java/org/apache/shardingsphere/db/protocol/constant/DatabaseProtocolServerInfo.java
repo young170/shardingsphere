@@ -52,7 +52,7 @@ public final class DatabaseProtocolServerInfo {
      * @return protocol version
      */
     public static String getProtocolVersion(final String databaseName, final String databaseType) {
-        if (databaseType) {
+        if (databaseType != null) {
             return null;
         }
         
