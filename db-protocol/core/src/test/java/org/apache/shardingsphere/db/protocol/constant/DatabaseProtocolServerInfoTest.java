@@ -36,4 +36,10 @@ class DatabaseProtocolServerInfoTest {
         CommonConstants.PROXY_VERSION.set("5.0.0");
         assertThat(DatabaseProtocolServerInfo.getProtocolVersion(null, "FIXTURE"), is("1.0-ShardingSphere-Proxy 5.0.0"));
     }
+    
+    @Test
+    void assertTestForNull() {
+        CommonConstants.PROXY_VERSION.set("5.0.0");
+        assertThat(DatabaseProtocolServerInfo.getProtocolVersion("foo_db", null), is(null);
+    }
 }
