@@ -22,8 +22,8 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.Assert;
+import static org.junit.Test;
 
 class DatabaseProtocolServerInfoTest {
     
@@ -43,6 +43,6 @@ class DatabaseProtocolServerInfoTest {
     @Test
     void assertTestForNull() {
         CommonConstants.PROXY_VERSION.set("5.0.0");
-        Assert.assertEquals(DatabaseProtocolServerInfo.getProtocolVersion("foo_db", null), null);
+        assertEquals(DatabaseProtocolServerInfo.getProtocolVersion("foo_db", null), null);
     }
 }
